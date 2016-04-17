@@ -15,7 +15,9 @@ RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A170311380
     echo 'source /etc/profile.d/rvm.sh' >> ~/.bashrc && \
     /usr/local/rvm/bin/rvm --default install 2.3.0
 
-RUN /bin/bash -l -c "gem install jekyll && gem install pandoc-ruby"
+ENV PATH /usr/local/rvm/gems/ruby-2.3.0/bin:/usr/local/rvm/gems/ruby-2.3.0@global/bin:/usr/local/rvm/rubies/ruby-2.3.0/bin:$PATH
+
+RUN gem install jekyll && gem install pandoc-ruby
 
 # Define default command.
 CMD ["bash"]
