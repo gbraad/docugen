@@ -1,7 +1,8 @@
 FROM ubuntu:trusty
 MAINTAINER Gerard Braad <me@gbraad.nl>
 
-RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
+    sed -i 's/^mesg n$/tty -s \&\& mesg n/g' /root/.profile
 
 RUN apt-get update #2016-4-17
 
@@ -16,3 +17,5 @@ RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A170311380
 
 RUN /bin/bash -l -c "gem install jekyll && gem install pandoc-ruby"
 
+# Define default command.
+CMD ["bash"]
