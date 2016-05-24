@@ -19,7 +19,7 @@ ENV PATH /usr/local/rvm/gems/ruby-2.3.0/bin:/usr/local/rvm/gems/ruby-2.3.0@globa
 
 RUN gem install jekyll && gem install pandoc-ruby
 
-RUN apt-get install -y texlive texlive-xetex texlive-latex-recommended
+RUN apt-get install -y texlive texlive-xetex texlive-latex-recommended texlive-latex-extra texlive-lang-cjk texlive-fonts-recommended
 
 # Define default command.
 CMD ["bash"]
