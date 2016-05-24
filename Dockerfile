@@ -4,7 +4,7 @@ MAINTAINER Gerard Braad <me@gbraad.nl>
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
     sed -i 's/^mesg n$/tty -s \&\& mesg n/g' /root/.profile
 
-RUN apt-get update #2016-4-17
+RUN apt-get update #2016-05-24
 
 RUN apt-get install -y build-essential curl
 
@@ -19,9 +19,7 @@ ENV PATH /usr/local/rvm/gems/ruby-2.3.0/bin:/usr/local/rvm/gems/ruby-2.3.0@globa
 
 RUN gem install jekyll && gem install pandoc-ruby
 
-RUN apt-get install -y texlive
-
-RUN apt-get install -y texlive-latex-recommended
+RUN apt-get install -y texlive texlive-xetex texlive-latex-recommended
 
 # Define default command.
 CMD ["bash"]
