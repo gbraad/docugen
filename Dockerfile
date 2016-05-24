@@ -21,5 +21,7 @@ RUN gem install jekyll && gem install pandoc-ruby
 
 RUN apt-get install -y texlive
 
+RUN apt-get install -y texlive-latex-recommended
+
 # Define default command.
 CMD ["bash"]
