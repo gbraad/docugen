@@ -66,6 +66,13 @@ pages:
 ```
 
 
+Note
+----
+
+Pandoc can render to PDF format, using `xetex` and `xelatex`. Support
+has been added for CJK using the WenQuanYi Micro Hei font.
+
+
 Authors
 -------
 
