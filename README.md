@@ -1,6 +1,8 @@
 DocuGen
 =======
 
+[!["Scribble"](https://raw.githubusercontent.com/gbraad/assets/gh-pages/icons/scribble-icon-64.png)](http://github.com/gbraad)
+
 Docker container image for generating documentation.
 
 
@@ -27,6 +29,12 @@ To pull this container from the Docker registry:
 $ docker pull gbraad/docugen
 ```
 
+or
+
+```
+$ docker pull registry.gitlab.com/gbraad/docugen
+```
+
 and run `pandoc` or `jekyll` interactive.
 
 
@@ -36,7 +44,7 @@ This container can also be used as a Gitlab CI runner. Use the following
 instructions inside `.gitlab-ci.yml` for either `pandoc`:
 
 ```
-image: gbraad/docugen:latest
+image: registry.gitlab.com/gbraad/docugen:latest
 
 pages:
   script:

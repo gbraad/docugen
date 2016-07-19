@@ -8,3 +8,14 @@ build_image:
     - docker push registry.gitlab.com/gbraad/docugen:latest
   only:
     - master
+
+pages:
+  image: registry.gitlab.com/gbraad/docugen:latest
+  script:
+  - mkdir public
+  - pandoc -t html5 -o public/index.html ./README.md
+  artifacts:
+    paths:
+    - public
+  only:
+  - master
