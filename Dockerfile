@@ -8,7 +8,9 @@ RUN apt-get update #2016-05-24
 
 RUN apt-get install -y build-essential curl
 
-RUN apt-get install -y pandoc
+RUN curl -sSL https://github.com/jgm/pandoc/releases/download/1.17.2/pandoc-1.17.2-1-amd64.deb -o/tmp/pandoc.deb && \
+    dpkg -i /tmp/pandoc.deb && \
+    rm -f /tmp/pandoc.deb
 
 RUN gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 && \
     curl -sSL https://get.rvm.io | bash -s stable && \

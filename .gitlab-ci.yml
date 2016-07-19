@@ -13,7 +13,7 @@ pages:
   image: registry.gitlab.com/gbraad/docugen:latest
   script:
   - mkdir public
-  - pandoc -t html5 -o public/index.html ./README.md
+  - pandoc -t html5 -f markdown-citations -o public/index.html ./README.md
   artifacts:
     paths:
     - public
