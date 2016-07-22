@@ -4,7 +4,7 @@ MAINTAINER Gerard Braad <me@gbraad.nl>
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
     sed -i 's/^mesg n$/tty -s \&\& mesg n/g' /root/.profile
 
-RUN apt-get update #2016-05-24
+RUN apt-get update
 
 RUN apt-get install -y build-essential curl
 
@@ -24,6 +24,8 @@ RUN gem install jekyll && gem install pandoc-ruby
 RUN apt-get install -y texlive texlive-xetex texlive-latex-recommended texlive-latex-extra texlive-lang-cjk
 
 RUN apt-get install -y fonts-wqy-microhei fonts-wqy-zenhei texlive-fonts-recommended
+
+RUN apt-get install -y phantomjs
 
 # Define default command.
 CMD ["bash"]
