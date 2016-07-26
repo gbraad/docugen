@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+FROM registry.gitlab.com/gbraad/ubuntu:trusty
 MAINTAINER Gerard Braad <me@gbraad.nl>
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
