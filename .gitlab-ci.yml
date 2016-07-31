@@ -1,4 +1,10 @@
+stages:
+  - compose
+  - documentation
+
+
 build_image:
+  stage: compose
   image: docker:git
   services:
   - docker:dind
@@ -10,6 +16,7 @@ build_image:
     - master
 
 pages:
+  stage: documentation
   image: registry.gitlab.com/gbraad/docugen:latest
   script:
   - mkdir public
