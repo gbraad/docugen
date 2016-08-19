@@ -27,5 +27,9 @@ RUN apt-get install -y fonts-wqy-microhei fonts-wqy-zenhei texlive-fonts-recomme
 
 RUN apt-get install -y phantomjs
 
+RUN mkdir -p /workspace
+VOLUME ["/workspace"]
+WORKDIR /workspace
+
 # Define default command.
 CMD ["bash"]
