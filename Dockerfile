@@ -6,7 +6,7 @@ RUN rm /bin/sh && ln -s /bin/bash /bin/sh && \
 
 RUN apt-get update
 
-RUN apt-get install -y build-essential curl
+RUN apt-get install -y build-essential curl git
 
 RUN curl -sSL https://github.com/jgm/pandoc/releases/download/1.17.2/pandoc-1.17.2-1-amd64.deb -o/tmp/pandoc.deb && \
     dpkg -i /tmp/pandoc.deb && \
