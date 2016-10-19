@@ -25,7 +25,14 @@ RUN apt-get install -y texlive texlive-xetex texlive-latex-recommended texlive-l
 
 RUN apt-get install -y fonts-wqy-microhei fonts-wqy-zenhei texlive-fonts-recommended
 
-RUN apt-get install -y phantomjs
+RUN apt-get install -y libfontconfig && \
+    curl -sSL https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 -o/tmp/phantomjs.tar.bz2 && \
+    cd /tmp && \
+    tar -xjvf phantomjs.tar.bz2&& \
+    mv /tmp/phantomjs-2.1.1-linux-x86_64 /opt/phantomjs && \
+    rm -rf /tmp/phantomjs.tar.bz2
+
+ENV PATH=${PATH}:/opt/phantomjs/bin
 
 RUN mkdir -p /workspace
 VOLUME ["/workspace"]
