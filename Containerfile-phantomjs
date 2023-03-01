@@ -1,0 +1,22 @@
+FROM registry.fedoraproject.org/fedora:latest
+#MAINTAINER Gerard Braad <me@gbraad.nl>
+
+RUN dnf update -y \
+    && dnf install -y glibc fontconfig freetype freetype-devel fontconfig-devel wget bzip2 \
+    && dnf clean all \
+    && rm -rf /var/cache/yum
+
+RUN curl -sSL https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 -o/tmp/phantomjs.tar.bz2 && \
+    cd /tmp && \
+    tar -xjvf phantomjs.tar.bz2&& \
+    mv /tmp/phantomjs-2.1.1-linux-x86_64 /opt/phantomjs && \
+    rm -rf /tmp/phantomjs.tar.bz2
+
+ENV OPENSSL_CONF=/tmp/openssl.cnf
+ENV PATH=/opt/phantomjs/bin/:$PATH
+
+RUN mkdir -p /workspace
+VOLUME ["/workspace"]
+WORKDIR /workspace
+
+ENTRYPOINT ["phantomjs"]
