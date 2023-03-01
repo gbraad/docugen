@@ -11,7 +11,7 @@ RUN dnf install -y rubygem-jekyll \
     && dnf clean all \
     && rm -rf /var/cache/yum
 
-RUN dnf install texlive texlive-xetex texlive-cjk wqy-microhei-fonts \
+RUN dnf install -y texlive texlive-xetex texlive-cjk wqy-microhei-fonts \
     && dnf clean all \
     && rm -rf /var/cache/yum
 
